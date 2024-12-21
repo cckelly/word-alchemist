@@ -6,50 +6,59 @@ import argparse
 
 # TODO cleanup:
 # doc comments on all functions
-# full help menu for CLI and arguments
 # add comments where necessary
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Simple Python CLI to help you brainstorm the name of your next product, studio, brand etc"
+    )
     parser.add_argument(
         '--files',
         nargs='+',
-        required=True
+        required=True,
+        help="[Required] List of JSON files containing words to permutate"
     )
     parser.add_argument(
         '-fw',
         '--first-word',
-        default=''
+        default='',
+        help="[Optional] Becomes the default first word in all permutations"
     )
     parser.add_argument(
         '-sw',
         '--second-word',
-        default=''
+        default='',
+        help="[Optional] Becomes the default second-word in all permutations"
     )
     parser.add_argument(
         '--filters',
         nargs='+',
-        default=[]
+        default=[],
+        help="Filters to use on the JSON files above, see the documentation for examples"
     )
     parser.add_argument(
         '-j',
         '--join',
-        action='store_true'
+        action='store_true',
+        help="[Optional] Join words together, removing spaces"
     )
     parser.add_argument(
         '-c',
         '--capitalize',
-        action='store_true'
+        action='store_true',
+        help='[Optional] Capitalize first letter of each word in the output'
     )
     parser.add_argument(
         '-a',
         '--append',
-        default=''
+        default='',
+        help='[Optional] String to append to all permutations'
     )
     parser.add_argument(
         '-o',
         '--output',
-        default=''
+        default='',
+        help="[Optional] Output file to log results to, otherwise will be printed"
     )
     return parser.parse_args()
 
