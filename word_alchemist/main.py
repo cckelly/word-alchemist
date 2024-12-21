@@ -64,6 +64,10 @@ def parse_args() -> argparse.Namespace:
 
 def get_formatters(args: List[str]) -> List[str]:
     formatters = []
+
+    # this order is opinionated about the typical results a user wants
+    # can always customize this order via the CLI if desired in the future
+
     if args.join:
         formatters.append(JoinFormatter())
 
@@ -96,7 +100,6 @@ def main():
         args.second_word
     )
 
-    # just to be cute
     results = alchemist.mix()
     if len(results) == 0:
         print("No results found")

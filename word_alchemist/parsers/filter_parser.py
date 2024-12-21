@@ -17,6 +17,8 @@ filter_map = {
 class FilterParser:
     def parse_filter_string(self, filter_string: str) -> List[NumberComparisonFilter]:
         conditions = [condition.strip() for condition in filter_string.split("and")]
+        # regex to validate input, a bit coupled at the moment 
+        # but with more filters could start to split this out
         pattern = r"^(length|syllables)\s*(==|!=|>=|<=|>|<)\s*(\d+)$"
         
         filters = []
@@ -34,6 +36,7 @@ class FilterParser:
                 attribute_conditions[attribute] = []
             attribute_conditions[attribute].append((operator_symbol, target))
 
+            # build filter list based on conditions found
             if attribute in filter_map:
                 get_count = filter_map[attribute]
                 filter = NumberComparisonFilter(get_count, operator_symbol, target)
@@ -41,6 +44,7 @@ class FilterParser:
             else:
                 raise ValueError(f"Unsupported attribute: {attribute}")
 
+        # make sure we're using valid number ranges
         for attribute, conditions in attribute_conditions.items():
             self._validate_range_conditions(attribute, conditions)
 

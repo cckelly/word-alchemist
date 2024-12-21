@@ -32,7 +32,7 @@ class WordAlchemist():
         return results
 
     def _pour(self) -> List[str]:
-        # validate filter length
+        # validate filter length, can never have more filters than files
         filter_length = len(self.filters)
         file_length = len(self.files)
         if filter_length > file_length:
