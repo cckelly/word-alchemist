@@ -15,6 +15,7 @@ import re
 # output results to a file
 # add comments where necessary
 # use typing
+# confirm file structure
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
