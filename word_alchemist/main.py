@@ -2,20 +2,12 @@ from word_alchemist import WordAlchemist
 from formatters import *
 from filters import *
 from typing import List
-import syllapy
 import argparse
-import sys
-import json
-import re
 
 # TODO cleanup:
 # doc comments on all functions
 # full help menu for CLI and arguments
-# figure out how to properly package and release a CLI in the python dev env
-# output results to a file
 # add comments where necessary
-# use typing
-# confirm file structure
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()

@@ -1,7 +1,8 @@
+from typing import List
 import json
 
 class JsonParser:
-    def read_word_json(self, filename: str):
+    def read_word_json(self, filename: str) -> List[str]:
         with open(filename, 'r') as file:
             words = json.load(file)
         

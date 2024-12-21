@@ -1,11 +1,8 @@
-from parsers.filter_parser import FilterParser
-from parsers.json_parser import JsonParser
-from formatters.base_formatter import BaseFormatter
+from .parsers.filter_parser import FilterParser
+from .parsers.json_parser import JsonParser
+from .formatters.base_formatter import BaseFormatter
 from itertools import product
 from typing import List
-import syllapy
-import json
-import re
 
 class WordAlchemist():
     def __init__(
