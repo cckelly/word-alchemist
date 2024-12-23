@@ -1,6 +1,6 @@
-from .parsers.filter_parser import FilterParser
-from .parsers.json_parser import JsonParser
-from .formatters.base_formatter import BaseFormatter
+from word_alchemist.parsers.filter_parser import FilterParser
+from word_alchemist.parsers.json_parser import JsonParser
+from word_alchemist.formatters.base_formatter import BaseFormatter
 from itertools import product
 from typing import List
 
@@ -31,6 +31,10 @@ class WordAlchemist():
         results = []
         for combination in all_combinations:
             results.append(' '.join(combination))
+
+        # apply all formatters
+        for formatter in self.formatters:
+            results = formatter.apply_formatter(results)
 
         return results
 

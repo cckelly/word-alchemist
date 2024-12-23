@@ -1,4 +1,4 @@
-from filters.number_comparison_filter import NumberComparisonFilter
+from word_alchemist.filters.number_comparison_filter import NumberComparisonFilter
 from typing import List
 import syllapy
 import re

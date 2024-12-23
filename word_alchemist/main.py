@@ -1,6 +1,6 @@
 from word_alchemist import WordAlchemist
-from formatters import *
-from filters import *
+from word_alchemist.formatters import *
+from word_alchemist.filters import *
 from typing import List
 import argparse
 
