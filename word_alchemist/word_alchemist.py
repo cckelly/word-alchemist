@@ -5,6 +5,9 @@ from itertools import product
 from typing import List
 
 class WordAlchemist():
+    """
+        Main logic for taking the files, filters, and generating all permutations.
+    """
     def __init__(
         self, 
         files: List[str], 

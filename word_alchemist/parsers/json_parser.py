@@ -2,6 +2,9 @@ from typing import List
 import json
 
 class JsonParser:
+    """
+        Validates and parses a JSON file into an array of strings (words).
+    """
     def read_word_json(self, filename: str) -> List[str]:
         with open(filename, 'r') as file:
             words = json.load(file)

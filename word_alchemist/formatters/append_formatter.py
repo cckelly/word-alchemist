@@ -2,6 +2,9 @@ from .base_formatter import BaseFormatter
 from typing import List
 
 class AppendFormatter(BaseFormatter):
+    """
+        Formatter that appends a string to all permutations.
+    """
     def __init__(self, append_word: str):
         self.append_word = append_word
 

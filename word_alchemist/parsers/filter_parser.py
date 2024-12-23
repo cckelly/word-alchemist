@@ -15,6 +15,10 @@ filter_map = {
 }
 
 class FilterParser:
+    """
+        Reads all filters and turns the input string 
+        into valid operators to actually filter the words.
+    """
     def parse_filter_string(self, filter_string: str) -> List[NumberComparisonFilter]:
         conditions = [condition.strip() for condition in filter_string.split("and")]
         # regex to validate input, a bit coupled at the moment 
@@ -51,6 +55,11 @@ class FilterParser:
         return filters
 
     def _validate_range_conditions(self, attribute: str, conditions: List[tuple]):
+        """
+            Validate the range conditions by making sure 
+            we have a valid number range to operate on
+            for things like length and syllables.
+        """
         equals = [target for op, target in conditions if op == "=="]
         if len(equals) > 1:
             raise ValueError(f"Conflicting '==' conditions for {attribute}: {equals}")

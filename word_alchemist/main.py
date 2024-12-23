@@ -4,11 +4,10 @@ from filters import *
 from typing import List
 import argparse
 
-# TODO cleanup:
-# doc comments on all functions
-# add comments where necessary
-
 def parse_args() -> argparse.Namespace:
+    """
+        Parses CLI args into a usable Namespace object
+    """
     parser = argparse.ArgumentParser(
         description="Simple Python CLI to help you brainstorm the name of your next product, studio, brand etc"
     )
@@ -63,6 +62,9 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 def get_formatters(args: List[str]) -> List[str]:
+    """
+        Reads formatter flags and converts them to formatters to use.
+    """
     formatters = []
 
     # this order is opinionated about the typical results a user wants
@@ -80,6 +82,10 @@ def get_formatters(args: List[str]) -> List[str]:
     return formatters
 
 def handle_results(results: List[str], output_file: str):
+    """
+        Outputs final permutations to either a 
+        file or prints to the log depending on input.
+    """
     if output_file:
         if output_file:
             with open(output_file, 'w') as out:
@@ -89,6 +95,9 @@ def handle_results(results: List[str], output_file: str):
             print(result)
 
 def main():
+    """
+        Main entry point
+    """
     args = parse_args()
     formatters = get_formatters(args)
 
