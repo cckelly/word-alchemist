@@ -14,6 +14,8 @@ Install using pip:
 pip install word-alchemist
 ```
 
+You will also need to `pip install --upgrade setuptools` if you don't have it already.
+
 ---
 
 ## Usage
